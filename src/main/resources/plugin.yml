@@ -1,0 +1,5 @@
+name: ChatFilterLite
+version: '${project.version}'
+main: me.serliunx.chatfilterlite.ChatFilterLite
+api-version: 1.17
+authors: [ SerLiunx ]
