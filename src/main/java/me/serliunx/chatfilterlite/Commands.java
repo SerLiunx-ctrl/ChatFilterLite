@@ -12,7 +12,36 @@ public class Commands implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+        if(!cmd.getName().equalsIgnoreCase("cfl"))
+            return false;
+        if(sender.hasPermission("chatfilterlite.admin"))
+            return false;
+
+        if(args.length > 2 || args.length < 1) {
+            showHelp(args,sender);
+            return false;
+        }
+
+        //
+        switch (args[0]){
+            case "reload":
+                plugin.reloadConfig();
+                break;
+            case "switch":
+                plugin.switchPlugin(!plugin.getStatus());
+
+            default:
+                showHelp(args,sender);
+                return false;
+        }
         return false;
+    }
+
+
+    private void showHelp(String[] args,CommandSender sender){
+        for(String mess:plugin.getConfig().getStringList("messages.help_information")){
+            sender.sendMessage(mess);
+        }
     }
 }

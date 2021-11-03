@@ -1,0 +1,26 @@
+#
+#  ChatFilterLite  -  聊天文字过滤器简易版
+#
+#   by SerLiunx
+#       2021.11.3
+#
+
+
+#请勿随意修改
+version: "1.0.1"
+
+#是否启用
+enable: true
+
+#过滤器
+filters:
+  - "null"
+  - "null"
+
+#文字提示消息
+messages:
+  help_information:
+    - ""
+    - ""
+  no_permission: "权限不足."
+  switched: "状态切换成功."
